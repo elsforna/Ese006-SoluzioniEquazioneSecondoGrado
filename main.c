@@ -3,7 +3,7 @@
 #include <math.h>
 
 // Prototipi delle funzioni
-int esistonoRadiciReali (float a, float b, float c);
+void esistonoRadiciReali (float a, float b, float c);
 float calcolaDelta (float, float, float);
 float calcolaSoluzione1 (float, float, float);
 float calcolaSoluzione2 (float, float, float);
@@ -26,19 +26,19 @@ int main(int argc, char** argv) {
 }
 
 
-int esistonoRadiciReali (float a, float b, float c) {
+void esistonoRadiciReali (float a, float b, float c) {
     float delta;
     float risultato;
     delta = calcolaDelta(a, b, c);
-    if (delta<0)
+    if (delta >= 0)
     {
-        risultato = 0; // falso
+    stampaRisultato(calcolaSoluzione1(a,b,c),calcolaSoluzione2(a,b,c));
     }
     else {
-        risultato = 1; // vero
+    printf("Il delta è negativo, l'equazione è impossibile.");
     }
     
-    return risultato;
+    return;
 }
 
 float calcolaDelta (float a, float b, float c) {
